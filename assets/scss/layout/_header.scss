@@ -1,0 +1,112 @@
+.cabecalho {
+    box-sizing: border-box;
+    background-image: url(/assets/images/image-hero-desktop.jpg);
+    background-position: center;
+    background-size: cover;
+
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 2rem 10%;
+    
+
+    height: 18.75rem;
+
+    &__logo {
+        color: #fff;
+    }
+
+    &__btn{
+        display: none;
+    }
+    &__menu {
+
+
+        ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        &-item {
+
+            a {
+                font: {
+                    weight: bold;
+                }
+                text-decoration: none;
+                color: #fff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+@media ( max-width: 750px ) {
+    .cabecalho {
+
+        &__btn {
+            width: 50px;
+            height: 50px;
+            border-radius: .5rem;
+            padding: 0;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.432) ;
+            background-image: url(/assets/images/icon-hamburger.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        &__menu {
+            @include boxshadow;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.548);
+            height: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            margin: auto;
+            z-index: 10;
+            transition: .2s;
+            border-radius: .5rem;
+
+            ul {
+                gap: 0;
+                flex-direction: column;
+                background-color: rgb(255, 255, 255);
+                
+                li a {
+                    color: rgba(0, 0, 0, 0.87);
+                    border-bottom: 1px solid hsla(0, 0%, 48%, 0.2);
+                    padding: 1.5rem ;
+                    width: 100%;
+                    display: block;
+                }
+            }
+            
+        }
+
+        &__menu.active {
+            height: auto;
+            animation: animeHeigth .2s;
+        }
+        
+        &__btn.active {
+            background-image: url(/assets/images/icon-close-menu.svg);
+        }
+    }
+
+    @keyframes animeHeigth {
+        from {
+            opacity: 0;
+            top : 50px;
+        } to {
+            opacity: 1;
+            top : 90px;
+        }
+    }
+}

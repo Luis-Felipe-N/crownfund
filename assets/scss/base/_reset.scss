@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    box-sizing: border-box;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    padding: 1.2rem 2.7rem;
+    font: {
+        weight: 700;
+        size: 15px;
+    }
+    transition: .2s;
+}
